@@ -1,0 +1,178 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/search_page"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@id/main_player_constrainter"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/search_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp">
+
+                <ImageView
+                    android:id="@+id/back_button"
+                    android:layout_width="76dp"
+                    android:layout_height="60dp"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:srcCompat="@drawable/ic_chevron_left_black_24dp"
+                    tools:layout_editor_absoluteY="20dp" />
+
+                <SearchView
+                    android:id="@+id/search_frame_sure"
+                    android:layout_width="278dp"
+                    android:layout_height="42dp"
+                    android:layout_marginStart="16dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="#ECEAEA"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toEndOf="@+id/back_button"
+                    tools:layout_editor_absoluteY="29dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/search_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="搜索历史"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+                <ImageView
+                    android:id="@+id/delete"
+                    android:layout_width="49dp"
+                    android:layout_height="65dp"
+                    app:srcCompat="@drawable/ic_delete_black_24dp"
+                    tools:layout_editor_absoluteX="346dp"
+                    tools:layout_editor_absoluteY="4dp" />
+
+                <ImageView
+                    android:id="@+id/imageView9"
+                    android:layout_width="46dp"
+                    android:layout_height="35dp"
+                    app:srcCompat="@drawable/ic_keyboard_arrow_down_black_24dp"
+                    tools:layout_editor_absoluteX="346dp"
+                    tools:layout_editor_absoluteY="82dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/search_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp">
+
+                <TextView
+                    android:id="@+id/textView5"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="推荐搜索"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/serach_hot"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="400dp">
+
+                <TextView
+                    android:id="@+id/textView6"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="搜索热榜"
+                    android:textColor="#000000"
+                    android:textSize="18sp"
+                    android:textStyle="bold"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="16dp" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/main_player_constrainter"
+        android:layout_width="415dp"
+        android:layout_height="124dp"
+        android:background="#ECEAEA"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent">
+
+        <ImageView
+            android:id="@+id/management"
+            android:layout_width="80dp"
+            android:layout_height="76dp"
+            app:layout_constraintBottom_toBottomOf="@+id/play_unplay"
+            app:layout_constraintTop_toTopOf="@+id/play_unplay"
+            app:srcCompat="@drawable/ic_queue_music_black_24dp"
+            tools:layout_editor_absoluteX="316dp" />
+
+        <ImageView
+            android:id="@+id/play_unplay"
+            android:layout_width="81dp"
+            android:layout_height="75dp"
+            app:srcCompat="@drawable/ic_play_circle_outline_black_24dp"
+            tools:layout_editor_absoluteX="224dp"
+            tools:layout_editor_absoluteY="22dp" />
+
+        <TextView
+            android:id="@+id/song_author"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maroon 5"
+            android:textColor="#A39F9F"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="73dp" />
+
+        <ImageView
+            android:id="@+id/cover"
+            android:layout_width="75dp"
+            android:layout_height="74dp"
+            app:srcCompat="@drawable/maps"
+            tools:layout_editor_absoluteX="27dp"
+            tools:layout_editor_absoluteY="23dp" />
+
+        <TextView
+            android:id="@+id/Song_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Maps"
+            android:textColor="#979595"
+            android:textSize="18sp"
+            tools:layout_editor_absoluteX="123dp"
+            tools:layout_editor_absoluteY="36dp" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>
