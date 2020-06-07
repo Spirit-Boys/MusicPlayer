@@ -1,9 +1,152 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    xmlns:tools="http://schemas.android.com/tools"
+    xmlns:app="http://home.android.com/apk/res-auto"
+    xmlns:app2="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://home.android.com/tools"
+    xmlns:tools2="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:id="@+id/home_page"
     tools:context=".HomePage">
 
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        app:layout_constraintBottom_toTopOf="@+id/home_page"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_frame"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="100dp">
+
+                <SearchView
+                    android:id="@+id/home_frame_sure"
+                    android:layout_width="278dp"
+                    android:layout_height="42dp"
+                    android:layout_marginEnd="32dp"
+                    android:background="#ECEAEA"
+                    app2:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintTop_toTopOf="parent"
+                    tools2:layout_editor_absoluteY="29dp" />
+
+                <TextView
+                    android:id="@+id/textView"
+                    android:layout_width="66dp"
+                    android:layout_height="43dp"
+                    android:text="推荐"
+                    android:textColor="#000000"
+                    android:textSize="30sp"
+                    android:textStyle="bold"
+                    app2:layout_constraintBottom_toBottomOf="parent"
+                    app2:layout_constraintEnd_toStartOf="@+id/home_frame_sure"
+                    app2:layout_constraintStart_toStartOf="parent"
+                    app2:layout_constraintTop_toTopOf="parent"
+                    tools:layout_editor_absoluteX="16dp"
+                    tools:layout_editor_absoluteY="29dp" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_history"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:minHeight="150dp">
+
+                <TextView
+                    android:id="@+id/textView2"
+                    android:layout_width="255dp"
+                    android:layout_height="28dp"
+                    android:text="Hi 上善若水，今日为你打造"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app2:layout_constraintEnd_toEndOf="parent"
+                    app2:layout_constraintStart_toStartOf="parent"
+                    app2:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="94dp"
+                    android:layout_height="148dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="8dp"
+                    app2:layout_constraintStart_toStartOf="parent"
+                    app2:layout_constraintTop_toBottomOf="@+id/textView2" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_recommend"
+                android:layout_width="match_parent"
+                android:layout_height="212dp"
+                android:minHeight="150dp">
+
+                <TextView
+                    android:id="@+id/textView3"
+                    android:layout_width="90dp"
+                    android:layout_height="25dp"
+                    android:layout_marginStart="40dp"
+                    android:text="最近常听"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app2:layout_constraintStart_toStartOf="parent"
+                    app2:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="47dp"
+                    android:layout_height="196dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="8dp"
+                    app2:layout_constraintStart_toStartOf="parent"
+                    app2:layout_constraintTop_toBottomOf="@+id/textView3" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_hot"
+                android:layout_width="match_parent"
+                android:layout_height="190dp"
+                android:minHeight="330dp">
+
+                <TextView
+                    android:id="@+id/textView4"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="4dp"
+                    android:text="符合你最近收听的音乐"
+                    android:textColor="#000000"
+                    android:textSize="20sp"
+                    android:textStyle="bold"
+                    app2:layout_constraintStart_toStartOf="parent"
+                    app2:layout_constraintTop_toTopOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:layout_width="47dp"
+                    android:layout_height="157dp"
+                    android:layout_marginStart="40dp"
+                    android:layout_marginTop="8dp"
+                    app2:layout_constraintStart_toStartOf="parent"
+                    app2:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+            </androidx.constraintlayout.widget.ConstraintLayout>
+
+        </LinearLayout>
+    </ScrollView>
 </androidx.constraintlayout.widget.ConstraintLayout>
