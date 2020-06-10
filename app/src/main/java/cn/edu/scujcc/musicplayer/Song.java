@@ -2,10 +2,11 @@ package cn.edu.scujcc.musicplayer;
 
 public class Song {
     private String id;
-    private String name;
-    private String singer;
-    private String cover;
-    private String url;
+    private String title; //歌曲名
+    private String url; //播放地址
+    private String lyric; //歌词
+    private String singer; //歌手
+    private String cover; // 写真播放界面图片
 
     public String getId() {
         return id;
@@ -15,12 +16,28 @@ public class Song {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getTitle() {
+        return title;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public String getUrl() {
+        return url;
+    }
+
+    public void setUrl(String url) {
+        this.url = url;
+    }
+
+    public String getLyric() {
+        return lyric;
+    }
+
+    public void setLyric(String lyric) {
+        this.lyric = lyric;
     }
 
     public String getSinger() {
@@ -39,22 +56,15 @@ public class Song {
         this.cover = cover;
     }
 
-    public String getUrl() {
-        return url;
-    }
-
-    public void setUrl(String url) {
-        this.url = url;
-    }
-
     @Override
     public String toString() {
         return "Song{" +
                 "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                ", title='" + title + '\'' +
+                ", url='" + url + '\'' +
+                ", lyric='" + lyric + '\'' +
                 ", singer='" + singer + '\'' +
                 ", cover='" + cover + '\'' +
-                ", url='" + url + '\'' +
                 '}';
     }
 }
