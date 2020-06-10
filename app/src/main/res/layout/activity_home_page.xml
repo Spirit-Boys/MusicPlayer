@@ -10,6 +10,7 @@
     tools:context=".HomePage">
 
     <ScrollView
+        android:id="@+id/scrollView2"
         android:layout_width="match_parent"
         android:layout_height="0dp"
         app:layout_constraintBottom_toTopOf="@+id/home_page"
@@ -155,4 +156,60 @@
 
         </LinearLayout>
     </ScrollView>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app2:layout_constraintBottom_toBottomOf="parent"
+        app2:layout_constraintEnd_toEndOf="parent"
+        app2:layout_constraintStart_toStartOf="parent"
+        app2:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/mine_button"
+            android:layout_width="54dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="686dp"
+            android:layout_marginEnd="16dp"
+            app2:layout_constraintEnd_toEndOf="parent"
+            app2:layout_constraintTop_toTopOf="parent"
+            app2:srcCompat="@drawable/homenmine" />
+
+        <ImageView
+            android:id="@+id/recommend_button"
+            android:layout_width="54dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="686dp"
+            android:layout_marginEnd="56dp"
+            app2:layout_constraintEnd_toStartOf="@+id/dynamic_button"
+            app2:layout_constraintTop_toTopOf="parent"
+            app2:srcCompat="@drawable/homerecommend"
+            tools2:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/dynamic_button"
+            android:layout_width="54dp"
+            android:layout_height="38dp"
+            android:layout_marginTop="686dp"
+            android:layout_marginEnd="56dp"
+            app2:layout_constraintEnd_toStartOf="@+id/mine_button"
+            app2:layout_constraintTop_toTopOf="parent"
+            app2:srcCompat="@drawable/homedynamic"
+            tools2:ignore="MissingConstraints" />
+
+        <ImageView
+            android:id="@+id/musichall_button"
+            android:layout_width="54dp"
+            android:layout_height="38dp"
+            android:layout_marginStart="16dp"
+            android:layout_marginTop="686dp"
+            android:layout_marginEnd="56dp"
+            app2:layout_constraintEnd_toStartOf="@+id/recommend_button"
+            app2:layout_constraintHorizontal_bias="0.0"
+            app2:layout_constraintStart_toStartOf="parent"
+            app2:layout_constraintTop_toTopOf="parent"
+            app2:srcCompat="@drawable/homemusichall"
+            tools2:ignore="MissingConstraints" />
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
 </androidx.constraintlayout.widget.ConstraintLayout>
