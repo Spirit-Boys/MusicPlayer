@@ -28,7 +28,7 @@ public class SongRvAdapter extends RecyclerView.Adapter<SongRvAdapter.SongRowHol
     @NonNull
     @Override
     public SongRowHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View rowPlay = LayoutInflater.from(parent.getContext()).inflate(R.layout.activity_lyric_play,parent,false);
+        View rowPlay = LayoutInflater.from(parent.getContext()).inflate(R.layout.song_row,parent,false);
         SongRowHolder holder = new SongRowHolder(rowPlay);
         return holder;
     }
@@ -45,19 +45,18 @@ public class SongRvAdapter extends RecyclerView.Adapter<SongRvAdapter.SongRowHol
     }
 
     public class SongRowHolder extends RecyclerView.ViewHolder {
-        private TextView title; //频道标题
-        private TextView singer; //频道清晰度
-        private TextView lyric;//歌曲封面
+        private TextView title; //歌曲名字
+        private TextView singer; //歌手
+        private ImageView cover;//歌曲封面
 
         public SongRowHolder(@NonNull View row) {
             super(row);
             this.title = row.findViewById(R.id.song_title);
             this.singer = row.findViewById(R.id.song_singer);
-            this.lyric = row.findViewById(R.id.song_lyric);
+            this.cover = row.findViewById(R.id.song_cover);
             row.setOnClickListener((v) -> {
                 int position = getLayoutPosition();
                 Log.d("Song",position+"行被点击了");
-                //TODO 调用实际的跳转代码
                 listener.onSongClick(position);
             });
         }
@@ -69,6 +68,10 @@ public class SongRvAdapter extends RecyclerView.Adapter<SongRvAdapter.SongRowHol
             RoundedCorners rc = new RoundedCorners(6);
             RequestOptions ro = RequestOptions.bitmapTransform(rc)
                     .override(300,300);
+            Glide.with(context)
+                    .load(c.getCover())
+                    .placeholder(R.drawable.maps)
+                    .into(this.cover);
 
         }
     }

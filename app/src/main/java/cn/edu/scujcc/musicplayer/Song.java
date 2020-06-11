@@ -1,12 +1,46 @@
 package cn.edu.scujcc.musicplayer;
 
-public class Song {
+import java.io.Serializable;
+
+public class Song implements Serializable {
     private String id;
     private String title; //歌曲名
     private String url; //播放地址
     private String lyric; //歌词
     private String singer; //歌手
     private String cover; // 写真播放界面图片
+    private int play = 0;
+    private int search = 0;
+
+    @Override
+    public String toString() {
+        return "Song{" +
+                "id='" + id + '\'' +
+                ", title='" + title + '\'' +
+                ", url='" + url + '\'' +
+                ", lyric='" + lyric + '\'' +
+                ", singer='" + singer + '\'' +
+                ", cover='" + cover + '\'' +
+                ", play=" + play +
+                ", search=" + search +
+                '}';
+    }
+
+    public int getPlay() {
+        return play;
+    }
+
+    public void setPlay(int play) {
+        this.play = play;
+    }
+
+    public int getSearch() {
+        return search;
+    }
+
+    public void setSearch(int search) {
+        this.search = search;
+    }
 
     public String getId() {
         return id;
@@ -56,15 +90,4 @@ public class Song {
         this.cover = cover;
     }
 
-    @Override
-    public String toString() {
-        return "Song{" +
-                "id='" + id + '\'' +
-                ", title='" + title + '\'' +
-                ", url='" + url + '\'' +
-                ", lyric='" + lyric + '\'' +
-                ", singer='" + singer + '\'' +
-                ", cover='" + cover + '\'' +
-                '}';
-    }
 }
