@@ -9,6 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
+import android.widget.Toast;
 
 import java.util.List;
 
@@ -21,6 +23,7 @@ public class HomePage extends AppCompatActivity implements SongRvAdapter.SongCli
     private SongRvAdapter randomAdapter;
     private SongLab lab = SongLab.getInstance();
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState){
             super.onCreate(savedInstanceState);
@@ -29,19 +32,8 @@ public class HomePage extends AppCompatActivity implements SongRvAdapter.SongCli
             this.songrandom = findViewById(R.id.song_random);
             this.songpre = findViewById(R.id.song_pre);
             this.songlike = findViewById(R.id.song_like);
+            initData();
             likeAdapter = new SongRvAdapter(HomePage.this, p -> {
-                Intent intent = new Intent(HomePage.this, PortraitPlay.class);
-                Song c = lab.getSong(p);
-                intent.putExtra("Song", c);
-                startActivity(intent);
-            });
-            preAdapter = new SongRvAdapter(HomePage.this, p -> {
-                Intent intent = new Intent(HomePage.this, PortraitPlay.class);
-                Song c = lab.getSong(p);
-                intent.putExtra("Song", c);
-                startActivity(intent);
-            });
-            randomAdapter = new SongRvAdapter(HomePage.this, p -> {
                 Intent intent = new Intent(HomePage.this, PortraitPlay.class);
                 Song c = lab.getSong(p);
                 intent.putExtra("Song", c);
@@ -49,11 +41,22 @@ public class HomePage extends AppCompatActivity implements SongRvAdapter.SongCli
             });
             this.songlike.setAdapter(likeAdapter);
             this.songlike.setLayoutManager(new LinearLayoutManager(this));
+            preAdapter = new SongRvAdapter(HomePage.this, p -> {
+                Intent intent = new Intent(HomePage.this, PortraitPlay.class);
+                Song c = lab.getSong(p);
+                intent.putExtra("Song", c);
+                startActivity(intent);
+            });
             this.songpre.setAdapter(preAdapter);
             this.songpre.setLayoutManager(new LinearLayoutManager(this));
+            randomAdapter = new SongRvAdapter(HomePage.this, p -> {
+                Intent intent = new Intent(HomePage.this, PortraitPlay.class);
+                Song c = lab.getSong(p);
+                intent.putExtra("Song", c);
+                startActivity(intent);
+            });
             this.songrandom.setAdapter(randomAdapter);
             this.songrandom.setLayoutManager(new LinearLayoutManager(this));
-            initData();
         }
 
     @Override
@@ -67,16 +70,32 @@ public class HomePage extends AppCompatActivity implements SongRvAdapter.SongCli
 
     private void initData() {
         //得到网络上的数据后，去更新界面
-        Handler handler = new Handler(){
+        Handler likeSong = new Handler(){
             @Override
             public void handleMessage(@NonNull Message msg) {
                 List<Song> songs = (List<Song>) msg.obj;
                 lab.setData(songs);
                 likeAdapter.notifyDataSetChanged();
-//                preAdapter.notifyDataSetChanged();
-//                randomAdapter.notifyDataSetChanged();
             }
         };
-        lab.getData(handler);
+        lab.getDataLike(likeSong);
+        Handler preSong = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                List<Song> songs = (List<Song>) msg.obj;
+                lab.setData(songs);
+                preAdapter.notifyDataSetChanged();
+            }
+        };
+        lab.getDataPre(preSong);
+        Handler ranSong = new Handler(){
+            @Override
+            public void handleMessage(@NonNull Message msg) {
+                List<Song> songs = (List<Song>) msg.obj;
+                lab.setData(songs);
+                randomAdapter.notifyDataSetChanged();
+            }
+        };
+        lab.getDataRandom(ranSong);
     }
 }
